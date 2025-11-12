@@ -32,9 +32,9 @@ public class UsersController(IMessageBus messageBus) : ControllerBase
     [HttpDelete("{id:guid}")]
     public async Task<IActionResult> DeleteUser(Guid id)
     {
-        var deleted = await messageBus.InvokeAsync<bool>(new DeleteUserCommand(id));
+        var response = await messageBus.InvokeAsync<DeleteUserResponse>(new DeleteUserCommand(id));
         
-        return deleted ? NoContent() : NotFound();
+        return response.IsSuccess ? NoContent() : NotFound();
     }
 
     [HttpGet("{id:guid}")]
