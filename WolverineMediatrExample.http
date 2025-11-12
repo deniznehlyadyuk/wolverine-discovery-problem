@@ -1,6 +1,0 @@
-@WolverineMediatrExample_HostAddress = http://localhost:5206
-
-GET {{WolverineMediatrExample_HostAddress}}/weatherforecast/
-Accept: application/json
-
-###
